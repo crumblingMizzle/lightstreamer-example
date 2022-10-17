@@ -1,0 +1,17 @@
+<html>
+<head>
+    <script type="module">
+    import {Subscription,LightstreamerClient} from '../node_modules/lightstreamer-client-web/lightstreamer.esm.js';
+    var client = new LightstreamerClient("http://localhost","PYTHON_EXAMPLE");
+    client.connect();
+
+    var sub = new Subscription("MERGE",["example"],["message", "timestamp"]);
+    sub.addListener({
+        onItemUpdate: function(obj) {
+          console.log(obj.getValue("message") + " - " + obj.getValue("timestamp"));
+        }
+    }); 
+    client.subscribe(sub);
+    </script>
+</head>  
+</html>

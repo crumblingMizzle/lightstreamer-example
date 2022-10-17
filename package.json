@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "lightstreamer-client-web": "^8.0.7"
+  }
+}
